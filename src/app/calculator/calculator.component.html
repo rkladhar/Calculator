@@ -10,7 +10,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let calculation of calculations.storage; let i = index">
+      <tr *ngFor="let calculation of reversedCalculations; let i = index">
         <td>{{i+1}}</td>
         <td>{{calculation}}</td>
       </tr>

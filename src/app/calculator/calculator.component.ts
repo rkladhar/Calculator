@@ -17,6 +17,7 @@ export class CalculatorComponent implements OnInit {
   answered = false;
   operatorSet = false;
   calculations = new Queue<string>();
+  reversedCalculations: string[] = [];
 
   constructor(private calculatorService: CalculatorService) {}
 
@@ -26,8 +27,7 @@ export class CalculatorComponent implements OnInit {
     if(localStorage['previousCalculations'] != undefined){
       let output: Queue<string> = JSON.parse(localStorage['previousCalculations']);
       this.calculations.storage = output.storage;
-      // this.reversedCalculations.storage = output.storage;
-      // this.reversedCalculations.storage.reverse();
+      this.reversedCalculations = output.storage.slice().reverse();
     }
     //This will detect a change in another window
     if (window.addEventListener) {
